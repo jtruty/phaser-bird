@@ -25,7 +25,7 @@ Player.prototype = {
         this.flapkey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
     },
     update: function() {
-        if (this.flapkey.isDown) {
+        if (this.flapkey.isDown || game.input.mousePointer.isDown) {
             this.flap();
         }
 
