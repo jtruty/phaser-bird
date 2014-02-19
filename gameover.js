@@ -13,7 +13,7 @@ GameOver.prototype = {
         this.menuText = this.game.add.text(
             this.game.world.width/2,
             this.game.world.height/2,
-            "Game Over!\nPress Space to Restart",
+            "Game Over!\nclick, tap or space to restart",
             {
                 font: '32px "Lucida Console"',
                 fill: '#fff',
@@ -26,7 +26,7 @@ GameOver.prototype = {
         this.startkey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
     },
     update : function() {
-        if (this.startkey.isDown) {
+        if (this.startkey.isDown || game.input.mousePointer.isDown) {
             this.game.state.start('play');
         }
     }
