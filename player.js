@@ -22,12 +22,10 @@ Player.prototype = {
         //this.sprite.scale.setTo(0.5,0.5);
         this.sprite.animations.add('right', [0,1,2], 10, true);
 
-        this.flapkey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+        this.game.input.onTap.add(this.flap, this);
+
     },
     update: function() {
-        if (this.flapkey.isDown || game.input.mousePointer.isDown) {
-            this.flap();
-        }
 
     },
     flap: function() {

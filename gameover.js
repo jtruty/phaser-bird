@@ -13,7 +13,7 @@ GameOver.prototype = {
         this.menuText = this.game.add.text(
             this.game.world.width/2,
             this.game.world.height/2,
-            "Game Over!\nclick, tap or space to restart",
+            "game over!\nclick or tap to restart",
             {
                 font: '32px "Lucida Console"',
                 fill: '#fff',
@@ -23,11 +23,9 @@ GameOver.prototype = {
             }
         );
         this.menuText.anchor.setTo(0.5,0.5);
-        this.startkey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+        this.game.input.onTap.add(this.transition, this);
     },
-    update : function() {
-        if (this.startkey.isDown || game.input.mousePointer.isDown) {
-            this.game.state.start('play');
-        }
+    transition : function() {
+        this.game.state.start('play');
     }
 };
