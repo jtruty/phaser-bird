@@ -4,6 +4,6 @@ game.state.add('play', Play);
 game.state.add('gameover',GameOver);
 game.state.start('menu');
 
-var GRAVITY = 900;
+var GRAVITY = 1000;
 var SPEED = 300;
 var OPENING = 144;
