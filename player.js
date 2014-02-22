@@ -29,17 +29,17 @@ Player.prototype = {
 
     },
     flap: function() {
-        this.sprite.angle = -15;
+        this.sprite.angle = -30;
         if (this.flapTween != null) {
             this.flapTween.stop();
         }
         if (this.rotateTween != null) {
             this.rotateTween.stop();
         }
-        this.sprite.body.velocity.y = -280;
+        this.sprite.body.velocity.y = -450;
         this.sprite.animations.play('right');
         this.flapTween = this.game.add.tween(this.sprite).to({y: this.sprite.body.y-10}, 100, Phaser.Easing.Exponential.InOut, true, 0, false);
-        this.rotateTween = this.game.add.tween(this.sprite).to({angle: 60}, 1000, Phaser.Easing.Exponential.InOut, true, 0, false);
+        this.rotateTween = this.game.add.tween(this.sprite).to({angle: 60}, 800, Phaser.Easing.Exponential.InOut, true, 100, false);
     },
     hitGround: function() {
         return this.sprite.body.bottom >= this.game.world.bounds.bottom;

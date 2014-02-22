@@ -10,10 +10,19 @@ GameOver.prototype = {
     },
     create : function() {
         this.game.add.sprite(0,0,'bg');
+
+        //get score if browser supports it
+        var text;
+        if(typeof(Storage)!=="undefined") {
+            text = "game over!\nscore: "+ localStorage.score +"\n" + "high score: " + localStorage.highScore + "\nclick or tap to restart";
+        }
+        else {
+            text = "game over!\nclick or tap to restart";
+        }
         this.menuText = this.game.add.text(
             this.game.world.width/2,
             this.game.world.height/2,
-            "game over!\nclick or tap to restart",
+            text,
             {
                 font: '32px "Lucida Console"',
                 fill: '#fff',
