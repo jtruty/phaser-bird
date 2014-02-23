@@ -1,6 +1,7 @@
 Level = function(game) {
     this.game = game;
     this.bgtile = null;
+    this.ground = null;
     this.pipes = null;
     this.pipeTimer = null;
     this.scoreObj = null;
@@ -9,21 +10,21 @@ Level = function(game) {
 Level.prototype = {
     preload: function() {
         this.game.load.image('bg', 'assets/bg.png');
+        //this.game.load.image('ground', 'assets/ground.png');
         this.game.load.image('pipe', 'assets/pipe_sml.png');
     },
     create: function() {
         this.bgtile = this.game.add.sprite(0, 0, 'bg');
+        //this.ground = this.game.add.tileSprite(0, game.world.height - 96, game.world.width, 96, 'ground');
         this.pipes = this.game.add.group();
         this.scoreObj = this.game.add.group();
         this.pipeTimer = game.time.create(game);
         this.pipeTimer.loop(1500, this.spawnPipes, this);
-        this.start();
-    },
-    start: function() {
         this.pipeTimer.start();
     },
     update: function() {
         //scroll background
+        //this.ground.tilePosition.x -= game.time.physicsElapsed * SPEED / 2;
         //this.bgtile.tilePosition.x -= 1;
         // Remove offscreen pipes
         this.pipes.forEachAlive(function(pipe) {

@@ -13,7 +13,7 @@ GameOver.prototype = {
 
         //get score if browser supports it
         var text;
-        if(typeof(Storage)!=="undefined") {
+        if(this.game.device.localStorage) {
             text = "game over!\nscore: "+ localStorage.score +"\n" + "high score: " + localStorage.highScore + "\nclick or tap to restart";
         }
         else {
