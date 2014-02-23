@@ -25,7 +25,7 @@ HUD.prototype = {
     updateScore: function() {
         this.score += 1;
         this.scoreText.content = this.score;
-        if(typeof(Storage)!=="undefined") {
+        if(this.game.device.localStorage) {
             localStorage.score = this.score;
             if (localStorage.highScore) {
                 if (localStorage.score > localStorage.highScore) {
